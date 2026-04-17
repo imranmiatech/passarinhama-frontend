@@ -62,58 +62,81 @@ export const ListMembres = () => {
                         {members.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-[#EDEDED] rounded-[14px] p-4 md:p-6 flex flex-col md:flex-row gap-5 md:items-center justify-between"
+                                className="bg-[#EDEDED] w-full rounded-[14px] p-4 md:p-6 flex flex-col md:flex-row gap-5 md:items-center justify-between"
                             >
                                 {/* LEFT */}
-                                <div className="flex h-full gap-4">
+                                <div className="w-full flex flex-col md:flex-row h-full gap-4">
                                     <img
                                         src={item.image}
                                         alt="user"
                                         className="w-[100px] lg:w-[165px] h-[120px] lg:h-[190px] rounded-[12px] object-cover"
                                     />
 
-                                    <div className="text-base">
-                                        <p className="font-semibold text-[#212121]">
-                                            Société : <span className="font-normal">{item.company}</span>
-                                        </p>
+                                    <div className=" w-full text-base">
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 mt-2 text-[#212121]">
-                                            <p>
-                                                <span className="font-semibold">Nom :</span> {item.nom}
-                                            </p>
-                                            <p>
-                                                <span className="font-semibold">Adresse :</span> <br />
-                                                {item.address}
-                                            </p>
 
-                                            <p>
-                                                <span className="font-semibold">Prénom :</span> <br />
-                                                {item.prenom}
-                                            </p>
-                                            <p>
-                                                <span className="font-semibold">Email :</span> <br />
-                                                {item.email}
-                                            </p>
+                                        <div className="w-full gap-y-1 mt-2 text-[#212121]">
 
-                                            <p>
-                                                <span className="font-semibold">Téléphone :</span> <br />
-                                                {item.phone}
-                                            </p>
+                                            <div className=" flex justify-between w-full">
+                                                <div className="flex flex-col ">
+                                                    <p className="font-semibold text-[#212121]">
+                                                        Société : <span className="font-normal">{item.company}</span>
+                                                    </p>
+                                                    <div className="flex gap-x-15 mt-6">  <p>
+                                                        <span className="font-semibold">Nom :</span> {item.nom} <br />
+
+                                                        <span className="font-semibold">Prénom :</span>
+                                                        {item.prenom}
+
+                                                    </p>
+                                                        <p>
+                                                            <span className="font-semibold">Adresse :</span> <br />
+                                                            {item.address}
+                                                        </p></div>
+
+
+                                                </div>
+                                                <div className="hidden md:flex  flex-col gap-2 min-w-[200px]">
+                                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold px-6 cursor-pointer">
+                                                        Modifier
+                                                    </button>
+                                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold px-6 cursor-pointer">
+                                                        Supprimer
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                            <div className="w-full flex justify-between mt-5">
+                                                <div className=" w-full flex gap-x-15">
+                                                    <p>
+                                                        <span className="font-semibold">Téléphone :</span> <br />
+                                                        {item.phone}
+                                                    </p>
+                                                    <p>
+                                                        <span className="font-semibold">Email :</span> <br />
+                                                        {item.email}
+                                                    </p>
+                                                </div>
+                                                <div className="w-full min-w-[200px] hidden md:flex justify-end">
+                                                    <button className="bg-black text-white text-base py-2 rounded-md w-full max-w-[200px] shadow font-semibold px-6 cursor-pointer">
+                                                        Envoyer un email
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col md:hidden gap-2 min-w-[200px] mt-5">
+                                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold px-6 cursor-pointer">
+                                                        Modifier
+                                                    </button>
+                                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold px-6 cursor-pointer">
+                                                        Supprimer
+                                                    </button>
+                                                    <button className="bg-black text-white text-base py-2 rounded-md w-full  shadow font-semibold px-6 cursor-pointer">
+                                                        Envoyer un email
+                                                    </button>
+
+                                                </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* RIGHT BUTTONS */}
-                                <div className="flex flex-col gap-2 min-w-[150px]">
-                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold">
-                                        Modifier
-                                    </button>
-                                    <button className="bg-white text-black text-base py-2 rounded-md shadow font-semibold">
-                                        Supprimer
-                                    </button>
-                                    <button className="bg-black text-white text-base py-2 rounded-md shadow font-semibold">
-                                        Envoyer un email
-                                    </button>
                                 </div>
                             </div>
                         ))}

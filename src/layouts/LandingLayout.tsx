@@ -8,18 +8,18 @@ const LandingLayout: React.FC = () => {
     <div className="h-screen flex flex-col">
 
       {/* ✅ 1st: Navbar (Top) */}
-      <LandingNavbar />
+      <LandingNavbar  />
 
       {/* ✅ 2nd: Sidebar + Content */}
       <div className="flex flex-1">
 
         {/* Sidebar (left) */}
-        <aside className="w-1 md:w-15 lg:w-64  shrink-0">
+        <aside className="w-1 md:w-15 lg:w-64 shrink-0">
           <LandingSidebar />
         </aside>
 
         {/* Content (right) */}
-        <main className="flex-1 overflow-y-auto p-4">
+        <main className="flex-1 overflow-y-auto">
           <Outlet />
         </main>
 
