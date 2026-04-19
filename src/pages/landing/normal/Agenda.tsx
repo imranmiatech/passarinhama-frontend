@@ -1,5 +1,3 @@
-import { Plus } from "lucide-react";
-
 function Agenda() {
   const events = [
     {
