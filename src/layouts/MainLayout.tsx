@@ -14,8 +14,8 @@ const MainLayout: React.FC = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col">
         <Navbar />
-        <main className="flex-1 overflow-auto p-4 mt-10">
-          <Outlet /> {/* nested routes content render here */}
+        <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
+          <Outlet />
         </main>
       </div>
     </div>
