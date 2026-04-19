@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import DocumentDetailsPanel from "@/components/dashboard/DocumentDetailsPanel/DocumentDetailsPanel";
-import DocumentsMainList from "@/components/dashboard/DocumentsMainList/DocumentsMainList";
-import DocumentsSidebar from "@/components/dashboard/DocumentsSidebar/DocumentsSidebar";
+import DocumentDetailsPanel from "@/components/dashboard/documents/DocumentDetailsPanel/DocumentDetailsPanel";
+import DocumentsMainList from "@/components/dashboard/documents/DocumentsMainList/DocumentsMainList";
+import DocumentsSidebar from "@/components/dashboard/documents/DocumentsSidebar/DocumentsSidebar";
 import { cn } from "@/lib/utils";
 
 import type { DocumentsMobilePanel } from "./documentsMobilePanel";

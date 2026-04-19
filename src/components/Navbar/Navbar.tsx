@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 const ROUTE_TITLES: Record<string, string> = {
   dashboard: "Tableau de bord",
   documents: "Documents",
+  formations: "Formations",
   f: "F",
 };
 

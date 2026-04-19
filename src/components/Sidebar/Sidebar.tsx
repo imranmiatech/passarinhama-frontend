@@ -74,7 +74,7 @@ const navItems: NavItem[] = [
   { icon: <IconForums />, label: "Forums", badge: 3 },
   { icon: <IconAgenda />, label: "Agenda" },
   { icon: <IconDocuments />, label: "Documents", to: "/dashboard/documents", badge: 5 },
-  { icon: <IconFormations />, label: "Formations" },
+  { icon: <IconFormations />, label: "Formations", to: "/dashboard/formations" },
   { icon: <IconModeration />, label: "Modération", badge: 18 },
   { icon: <IconSettings />, label: "Paramètres" },
 ];

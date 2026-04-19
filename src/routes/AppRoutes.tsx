@@ -5,6 +5,7 @@ import MainLayout from "../layouts/MainLayout";
 
 import { Dashboard } from "../pages/dashboard/Dashboard";
 import { Documents } from "../pages/dashboard/Documents";
+import { Formations } from "../pages/dashboard/Formations";
 import { F } from "../pages/F";
 
 import EmptySideBarLayout from "../layouts/EmptySideBarLayout";
@@ -52,6 +53,7 @@ const AppRoutes = createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
       { path: "f", element: <F /> },
       { path: "documents", element: <Documents /> },
+      { path: "formations", element: <Formations /> },
     ],
   },
 

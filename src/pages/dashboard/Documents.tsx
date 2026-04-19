@@ -1,4 +1,4 @@
-import { DocumentsContent } from "@/components/dashboard/DocumentsContent/DocumentsContent";
+import { DocumentsContent } from "@/components/dashboard/documents/DocumentsContent/DocumentsContent";
 
 export const Documents = () => {
   return (
