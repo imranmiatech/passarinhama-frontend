@@ -5,7 +5,7 @@ import LeftNav from "../../components/dashboards/Profile/Leftnav"
 
 function Profile() {
   return (
-    <div className="w-full flex flex-col md:flex-row">
+    <div className="w-full flex flex-col  md:flex-row">
       <LeftNav />
       <Outlet/>
     </div>

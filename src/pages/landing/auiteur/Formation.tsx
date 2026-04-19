@@ -1,5 +1,3 @@
-import { Plus } from "lucide-react";
-
 export function Formation() {
   const events = [
     {

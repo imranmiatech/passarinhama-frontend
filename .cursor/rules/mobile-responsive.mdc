@@ -1,0 +1,13 @@
+---
+description: Mobile-first responsive UI for all new and updated screens
+globs: "**/*.{tsx,jsx,css}"
+---
+
+# Responsive UI (required)
+
+- **Default mindset**: design and implement **mobile first**, then enhance with `sm:`, `md:`, `lg:`, `xl:` (or container queries) so layouts never break on small viewports.
+- **Layouts**: avoid fixed multi-column desktop-only structures; use **stacking** (`flex-col` → `lg:flex-row`), **scroll** (`overflow-x-auto`, `min-w-0`), or **progressive disclosure** (drawers/sheets) when space is tight.
+- **Touch**: interactive targets at least **~44px** where possible; avoid hover-only critical actions.
+- **Typography / spacing**: scale down padding and font sizes on small screens (`px-4 sm:px-6`, `text-base sm:text-lg`, etc.).
+- **Tables / wide content**: horizontal scroll with clear containment, or card layout on `md` and below.
+- **Before finishing**: resize to **~360px width** mentally (or in devtools) and fix overflow, clipping, and unusable controls.

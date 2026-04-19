@@ -1,9 +1,12 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 
 
 import { Dashboard } from "../pages/dashboard/Dashboard";
+
+import { Documents } from "../pages/dashboard/Documents";
+import { Formations } from "../pages/dashboard/Formations";
 
 
 import EmptySideBarLayout from "../layouts/EmptySideBarLayout";
@@ -24,6 +27,9 @@ import Profile from "../pages/dashboard/Profile";
 import ProfilePage from "../components/dashboards/Profile/Profilepage";
 import SocietePage from "../components/dashboards/Profile/Societepage";
 import SecuritePage from "../components/dashboards/Profile/Securitepage";
+import NotificationsPage from "@/components/dashboards/Profile/Notificationspage";
+import SessionsPage from "@/components/dashboards/Profile/Sessionspage";
+import SupprimerPage from "@/components/dashboards/Profile/Supprimerpage";
 
 
 
@@ -66,10 +72,16 @@ const AppRoutes = createBrowserRouter([
         element: <Profile />,
         children: [
           { path: "profil", element: <ProfilePage /> },
-            { path: "societe", element: <SocietePage /> },
-              { path: "securite", element: <SecuritePage/> },
+          { path: "societe", element: <SocietePage /> },
+          { path: "securite", element: <SecuritePage /> },
+          { path: "notifications", element: <NotificationsPage /> },
+             { path: "sessions", element: <SessionsPage /> },
+                { path: "complete", element: <SupprimerPage /> },
         ]
-      }
+      },
+
+      { path: "documents", element: <Documents /> },
+      { path: "formations", element: <Formations /> },
     ],
   },
 

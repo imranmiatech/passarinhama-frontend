@@ -476,7 +476,7 @@ function EventDetailPanel({
     const remaining = event.capacity - event.enrolled;
 
     return (
-        <div className="flex flex-col h-full bg-white overflow-hidden">
+        <div className="flex flex-col h-full p-5 lg:p-10 bg-white overflow-hidden">
             <div className={`h-1 ${c.bar} w-full shrink-0`} />
             <div className="flex-1 overflow-y-auto">
                 <div className="p-4 sm:p-6 space-y-5">

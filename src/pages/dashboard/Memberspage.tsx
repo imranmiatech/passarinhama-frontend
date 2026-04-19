@@ -181,7 +181,7 @@ export default function MembersPage() {
   const selectedCount = selected.size;
  
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen p-5 lg:p-10 bg-gray-50 font-sans">
       {/* ── Top bar ── */}
       <div className="bg-white border-b border-gray-100 px-4 sm:px-6 py-3">
         {/* Search + filters row */}

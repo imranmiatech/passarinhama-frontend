@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 interface NavItem {
   icon: React.ReactNode;
   label: string;
   badge?: number;
-  active?: boolean;
+  /** When set, row is a link (react-router). */
+  to?: string;
+  /** Pass `true` for index routes so child paths do not stay “active”. */
+  end?: boolean;
 }
 
 const IconDashboard = () => (
@@ -65,15 +69,24 @@ const IconChevron = () => (
 );
 
 const navItems: NavItem[] = [
-  { icon: <IconDashboard />, label: "Tableau de bord", active: true },
-  { icon: <IconMembers />, label: "Membres", badge: 248 ,},
+  { icon: <IconDashboard />, label: "Tableau de bord", to: "/dashboard", end: true },
+  { icon: <IconMembers />, label: "Membres", badge: 248 },
   { icon: <IconForums />, label: "Forums", badge: 3 },
   { icon: <IconAgenda />, label: "Agenda" },
-  { icon: <IconDocuments />, label: "Documents" },
-  { icon: <IconFormations />, label: "Formations" },
+  { icon: <IconDocuments />, label: "Documents", to: "/dashboard/documents", badge: 5 },
+  { icon: <IconFormations />, label: "Formations", to: "/dashboard/formations" },
   { icon: <IconModeration />, label: "Modération", badge: 18 },
   { icon: <IconSettings />, label: "Paramètres" },
 ];
+
+function navItemClassName(isActive: boolean, iconOnly: boolean) {
+  const activeClass = isActive
+    ? "bg-[#2d3a1a] text-[#CCFF33]"
+    : "text-[#888] hover:bg-[#2a2a2a] hover:text-[#e5e5e5]";
+  return `relative flex items-center rounded-lg transition-colors duration-150 no-underline ${activeClass} ${
+    iconOnly ? "justify-center p-[10px]" : "gap-3 px-[10px] py-[9px]"
+  }`;
+}
 
 function NavItemRow({
   item,
@@ -84,48 +97,67 @@ function NavItemRow({
 }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const activeClass = item.active
-    ? "bg-[#2d3a1a] text-[#CCFF33]"
-    : "text-[#888] hover:bg-[#2a2a2a] hover:text-[#e5e5e5]";
+  const badge = (isActive: boolean) =>
+    !iconOnly && item.badge !== undefined ? (
+      <span
+        className={`flex-shrink-0 rounded-full px-[7px] py-[2px] text-[10px] font-semibold ${
+          isActive ? "bg-[rgba(204,255,51,0.15)] text-[#CCFF33]" : "bg-[#2e2e2e] text-[#aaa]"
+        }`}
+      >
+        {item.badge}
+      </span>
+    ) : null;
+
+  const rowWithBadge = (isActive: boolean) => (
+    <>
+      {item.icon}
+      {!iconOnly && (
+        <>
+          <span className="flex-1 overflow-hidden text-[13px] font-medium whitespace-nowrap">
+            {item.label}
+          </span>
+          {badge(isActive)}
+        </>
+      )}
+    </>
+  );
+
+  const tooltip =
+    iconOnly && showTooltip ? (
+      <div className="pointer-events-none absolute top-1/2 left-[calc(100%+8px)] z-50 -translate-y-1/2 rounded-md bg-[#333] px-2 py-1 text-[12px] whitespace-nowrap text-white">
+        {item.label}
+        {item.badge !== undefined && <span className="ml-1 opacity-70">({item.badge})</span>}
+      </div>
+    ) : null;
+
+  if (item.to) {
+    return (
+      <NavLink
+        to={item.to}
+        end={item.end}
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+        className={({ isActive }) => `${navItemClassName(isActive, iconOnly)} cursor-pointer`}
+      >
+        {({ isActive }) => (
+          <>
+            {rowWithBadge(isActive)}
+            {tooltip}
+          </>
+        )}
+      </NavLink>
+    );
+  }
 
   return (
     <div
-      className={`relative flex items-center rounded-lg cursor-pointer transition-colors duration-150 ${activeClass} ${
-        iconOnly ? "justify-center p-[10px]" : "gap-3 px-[10px] py-[9px]"
-      }`}
+      role="presentation"
+      className={`${navItemClassName(false, iconOnly)} cursor-default`}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
     >
-      {item.icon}
-
-      {!iconOnly && (
-        <>
-          <span className="text-[13px] font-medium flex-1 overflow-hidden whitespace-nowrap">
-            {item.label}
-          </span>
-          {item.badge !== undefined && (
-            <span
-              className={`text-[10px] font-semibold px-[7px] py-[2px] rounded-full flex-shrink-0 ${
-                item.active
-                  ? "bg-[rgba(204,255,51,0.15)] text-[#CCFF33]"
-                  : "bg-[#2e2e2e] text-[#aaa]"
-              }`}
-            >
-              {item.badge}
-            </span>
-          )}
-        </>
-      )}
-
-      {/* Tooltip — only in icon-only (tablet) mode */}
-      {iconOnly && showTooltip && (
-        <div className="absolute left-[calc(100%+8px)] top-1/2 -translate-y-1/2 bg-[#333] text-white text-[12px] px-2 py-1 rounded-md whitespace-nowrap z-50 pointer-events-none">
-          {item.label}
-          {item.badge !== undefined && (
-            <span className="ml-1 opacity-70">({item.badge})</span>
-          )}
-        </div>
-      )}
+      {rowWithBadge(false)}
+      {tooltip}
     </div>
   );
 }
