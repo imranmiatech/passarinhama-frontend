@@ -7,12 +7,12 @@ const CARDS = [
 
 export function DocumentsFolderQuickCards() {
   return (
-    <div className="mb-8 flex flex-col gap-4 sm:flex-row">
+    <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
       {CARDS.map((card) => (
         <button
           key={card.title}
           type="button"
-          className="flex w-full max-w-[280px] items-center gap-3 rounded-lg border border-[#E5E7EB] bg-white p-3 text-left shadow-sm transition-shadow hover:shadow-md sm:w-64"
+          className="flex w-full min-w-0 items-center gap-3 rounded-lg border border-[#E5E7EB] bg-white p-3 text-left shadow-sm transition-shadow hover:shadow-md sm:max-w-[280px] sm:shrink-0 md:w-64"
         >
           <div className="flex size-10 shrink-0 items-center justify-center rounded-lg border border-[#F3F4F6] bg-[#FAFAFA]">
             <Folder className="size-5 text-[#9CA3AF]" fill="currentColor" fillOpacity={0.15} />

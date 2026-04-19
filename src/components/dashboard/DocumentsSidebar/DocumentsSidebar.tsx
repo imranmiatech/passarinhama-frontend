@@ -8,7 +8,7 @@ import { SidebarNavItem } from "./SidebarNavItem";
 export default function DocumentsSidebar() {
   return (
     <aside
-      className="flex h-full w-[260px] shrink-0 flex-col border-r border-[#E5E7EB] bg-white"
+      className="flex h-full min-h-0 w-full flex-col bg-white"
       aria-label="Arborescence des documents"
     >
       <div className="px-4 pt-5 pb-3">

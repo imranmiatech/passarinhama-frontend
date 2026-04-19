@@ -18,8 +18,10 @@ export const Navbar = () => {
   const title = getPageTitle(location.pathname);
 
   return (
-    <header className="flex w-full shrink-0 items-center border-b border-[#E5E7EB] bg-white px-6 py-4">
-      <h1 className="text-[22px] font-semibold tracking-tight text-[#111827]">{title}</h1>
+    <header className="flex w-full min-w-0 shrink-0 items-center border-b border-[#E5E7EB] bg-white px-4 py-3 sm:px-6 sm:py-4">
+      <h1 className="min-w-0 truncate text-lg font-semibold tracking-tight text-[#111827] sm:text-[22px]">
+        {title}
+      </h1>
     </header>
   );
 };

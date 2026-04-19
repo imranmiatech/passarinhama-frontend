@@ -63,7 +63,9 @@ export function DocumentsFileRow({ row }: DocumentsFileRowProps) {
           >
             {row.author.initial}
           </div>
-          <span className="hidden font-medium text-[#374151] xl:inline">{row.author.name}</span>
+          <span className="hidden max-w-[7rem] truncate font-medium text-[#374151] md:inline">
+            {row.author.name}
+          </span>
         </div>
       </td>
       <td className="px-4 py-3 align-middle text-[13px] font-medium text-[#6B7280]">{row.date}</td>
@@ -88,7 +90,7 @@ export function DocumentsFileRow({ row }: DocumentsFileRowProps) {
       </td>
       <td className="px-4 py-3 text-right align-middle">
         {row.showActions ? (
-          <div className="inline-flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="inline-flex items-center gap-1 opacity-100 lg:opacity-0 lg:transition-opacity lg:group-hover:opacity-100">
             <button
               type="button"
               className="rounded-md border border-[#E5E7EB] bg-white p-1.5 text-[#9CA3AF] shadow-sm hover:bg-[#F9FAFB] hover:text-[#374151]"

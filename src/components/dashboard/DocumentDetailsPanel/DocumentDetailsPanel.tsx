@@ -8,10 +8,10 @@ import { DocumentDetailInfoSections } from "./DocumentDetailInfoSections";
 export default function DocumentDetailsPanel() {
   return (
     <aside
-      className="flex h-full w-[min(100%,320px)] shrink-0 flex-col overflow-y-auto border-l border-[#E5E7EB] bg-white sm:w-[320px]"
+      className="flex h-full min-h-0 w-full flex-col overflow-y-auto bg-white"
       aria-label="Détails du fichier"
     >
-      <div className="relative flex flex-col items-center border-b border-[#E5E7EB] px-6 pt-8 pb-5">
+      <div className="relative flex flex-col items-center border-b border-[#E5E7EB] px-4 pt-8 pb-5 sm:px-6">
         <div className="absolute top-4 right-4">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#DCFCE7] px-2 py-0.5 text-xs font-semibold text-[#15803D]">
             <span className="size-1.5 rounded-full bg-[#22C55E]" />
@@ -39,28 +39,33 @@ export default function DocumentDetailsPanel() {
           </span>
         </div>
 
-        <div className="flex w-full gap-2">
-          <Button className="h-10 flex-1 gap-2 bg-[#111827] font-medium text-white shadow-md hover:bg-[#000000]">
+        <div className="flex w-full flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-stretch">
+          <Button className="h-11 min-h-11 gap-2 bg-[#111827] font-medium text-white shadow-md hover:bg-[#000000] sm:h-10 sm:min-h-10 sm:flex-1">
             <Download className="size-4" />
             Télécharger
           </Button>
-          <Button variant="outline" className="h-10 flex-1 gap-2 border-[#E5E7EB] font-medium">
+          <Button
+            variant="outline"
+            className="h-11 min-h-11 gap-2 border-[#E5E7EB] font-medium sm:h-10 sm:min-h-10 sm:flex-1"
+          >
             <Edit2 className="size-4" />
             Modifier
           </Button>
-          <Button variant="outline" size="icon" className="size-10 shrink-0 border-[#E5E7EB]">
-            <Expand className="size-4 text-[#4B5563]" />
-          </Button>
-          <Button variant="outline" size="icon" className="size-10 shrink-0 border-[#E5E7EB]">
-            <Trash2 className="size-4 text-[#4B5563]" />
-          </Button>
+          <div className="flex gap-2 sm:contents">
+            <Button variant="outline" size="icon" className="size-11 min-h-11 shrink-0 border-[#E5E7EB] sm:size-10 sm:min-h-10">
+              <Expand className="size-4 text-[#4B5563]" />
+            </Button>
+            <Button variant="outline" size="icon" className="size-11 min-h-11 shrink-0 border-[#E5E7EB] sm:size-10 sm:min-h-10">
+              <Trash2 className="size-4 text-[#4B5563]" />
+            </Button>
+          </div>
         </div>
       </div>
 
       <Tabs defaultValue="informations" className="flex min-h-0 flex-1 flex-col">
         <TabsList
           variant="line"
-          className="h-auto w-full min-w-0 justify-start gap-0 rounded-none border-b border-[#E5E7EB] bg-transparent p-0 px-1"
+          className="h-auto w-full min-w-0 justify-start gap-0 overflow-x-auto rounded-none border-b border-[#E5E7EB] bg-transparent p-0 px-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           <TabsTrigger
             value="informations"
@@ -92,13 +97,13 @@ export default function DocumentDetailsPanel() {
         <TabsContent value="informations" className="m-0 min-h-0 flex-1 overflow-y-auto p-0">
           <DocumentDetailInfoSections />
         </TabsContent>
-        <TabsContent value="versions" className="m-0 p-6 text-sm text-[#6B7280]">
+        <TabsContent value="versions" className="m-0 p-4 text-sm text-[#6B7280] sm:p-6">
           Historique des versions à venir.
         </TabsContent>
-        <TabsContent value="permissions" className="m-0 p-6 text-sm text-[#6B7280]">
+        <TabsContent value="permissions" className="m-0 p-4 text-sm text-[#6B7280] sm:p-6">
           Gestion des permissions à venir.
         </TabsContent>
-        <TabsContent value="activite" className="m-0 p-6 text-sm text-[#6B7280]">
+        <TabsContent value="activite" className="m-0 p-4 text-sm text-[#6B7280] sm:p-6">
           Journal d&apos;activité à venir.
         </TabsContent>
       </Tabs>

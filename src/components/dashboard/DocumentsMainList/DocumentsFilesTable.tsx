@@ -18,8 +18,8 @@ export function DocumentsFilesTable() {
         </button>
       </div>
       <div className="overflow-hidden rounded-lg border border-[#E5E7EB] bg-white shadow-sm">
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[900px] text-left text-sm">
+        <div className="-mx-4 touch-pan-x overflow-x-auto px-4 sm:mx-0 sm:px-0">
+          <table className="w-full min-w-[720px] text-left text-sm sm:min-w-[900px]">
             <thead className="border-b border-[#E5E7EB] bg-[#FAFAFA] text-[11px] font-semibold uppercase tracking-wide text-[#9CA3AF]">
               <tr>
                 <th className="w-10 px-4 py-3">

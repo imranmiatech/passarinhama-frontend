@@ -14,16 +14,16 @@ function DetailSection({ title, children }: { title: string; children: React.Rea
 
 function DetailRow({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-cols-1 gap-1 sm:grid-cols-3 sm:gap-2">
       <div className="text-sm font-medium text-[#6B7280]">{label}</div>
-      <div className="col-span-2 text-sm font-medium text-[#111827]">{value}</div>
+      <div className="text-sm font-medium text-[#111827] sm:col-span-2">{value}</div>
     </div>
   );
 }
 
 export function DocumentDetailInfoSections() {
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-8 p-4 sm:p-6">
       <DetailSection title="Fichier">
         <DetailRow label="Nom" value="Rapport moral 2024.pdf" />
         <DetailRow label="Type" value="Document PDF" />
