@@ -131,73 +131,56 @@ function NavItemRow({
 }
 
 export default function Sidebar() {
-  // Tailwind breakpoints: hidden on mobile (<640px), icon-only on tablet (640–1023px), full on desktop (1024px+)
   return (
-    <>
-      {/*
-        Mobile  : hidden (display: none)
-        Tablet  : w-16 — icon only
-        Desktop : w-60 — full sidebar
-      */}
-      <aside
-        className="
-          hidden
-          sm:flex
-          flex-col
-          h-screen
-          bg-[#1a1a1a]
-          border-r border-white/[0.08]
-          flex-shrink-0
-          overflow-hidden
-          transition-all duration-200
-          w-16
-          lg:w-60
-        "
-      >
-        {/* Logo */}
-        <div className="flex items-center gap-3 px-4 py-5 border-b border-white/[0.08] min-h-[64px] lg:px-4 justify-center lg:justify-start">
-          <div className="w-9 h-9 bg-[#CCFF33] rounded-lg flex items-center justify-center flex-shrink-0">
-            
+    <aside
+      className="
+        hidden sm:flex flex-col
+        bg-[#1a1a1a]
+        border-r border-white/[0.08]
+        flex-shrink-0
+        min-w-[60px]
+        lg:w-60
+        h-full
+        sticky top-0
+      "
+    >
+      {/* Logo */}
+      <div className="flex items-center gap-3 px-4 py-5 border-b border-white/[0.08] min-h-[64px] justify-center lg:justify-start">
+        <div className="w-9 h-9 bg-[#CCFF33] rounded-lg flex items-center justify-center flex-shrink-0" />
+        
+        <div className="hidden lg:block overflow-hidden">
+          <p className="text-[18px] font-semibold text-white">ARCHICOPRO</p>
+          <p className="text-[13px] text-[#888]">EXTRANET</p>
+        </div>
+      </div>
+
+      {/* Nav */}
+      <nav className="flex-1 px-[10px] pt-5 overflow-y-auto">
+        <p className="hidden lg:block text-[12px] text-[#888] px-[6px] mb-[6px]">
+          PRINCIPAL
+        </p>
+
+        <div className="flex flex-col gap-1">
+          {navItems.map((item) => (
+            <NavItemRow key={item.label} item={item} iconOnly={false} />
+          ))}
+        </div>
+      </nav>
+
+      {/* Footer */}
+      <div className="px-[10px] py-3 border-t border-white/[0.08]">
+        <div className="flex items-center gap-[10px] rounded-lg px-[10px] py-[10px] hover:bg-[#2a2a2a]">
+          <div className="w-9 h-9 rounded-full bg-[#5b5fc7] flex items-center justify-center text-white">
+            ML
           </div>
-          <div className="hidden lg:block overflow-hidden items-center">
-            <p className="text-[18px] font-semibold text-white tracking-[0.05em]">ARCHICOPRO</p>
-            <p className="text-[13px] text-[#888] tracking-[0.08em] mt-[1px]">EXTRANET</p>
+
+          <div className="hidden lg:block overflow-hidden">
+            <p className="text-[13px] text-[#e5e5e5] truncate">Lahoucine</p>
+            <p className="text-[11px] text-[#888] truncate">Administrateur</p>
           </div>
         </div>
-
-        {/* Nav */}
-        <nav className="flex-1 px-[10px] pt-5 overflow-y-auto">
-          <p className="hidden lg:block text-[12px] font-semibold text-[#888] tracking-[0.1em] px-[6px] mb-[6px]">
-            PRINCIPAL
-          </p>
-          <div className="flex flex-col py-2.5 px-2.4 text-[18px] font-medium">
-            {navItems.map((item) => (
-              <NavItemRow
-                key={item.label}
-                item={item}
-                iconOnly={false} /* controlled via CSS visibility below */
-              />
-            ))}
-          </div>
-        </nav>
-
-        {/* Footer */}
-        <div className="mt-auto px-[10px] py-3 border-t border-white/[0.08]">
-          <div className="flex items-center gap-[10px] cursor-pointer rounded-lg px-[10px] py-[10px] hover:bg-[#2a2a2a] transition-colors justify-center lg:justify-start overflow-hidden">
-            <div className="w-9 h-9 rounded-full bg-[#5b5fc7] flex items-center justify-center text-[12px] font-semibold text-white flex-shrink-0">
-              ML
-            </div>
-            <div className="hidden lg:block flex-1 overflow-hidden">
-              <p className="text-[13px] font-medium text-[#e5e5e5] whitespace-nowrap">Lahoucine</p>
-              <p className="text-[11px] text-[#888] whitespace-nowrap">Administrateur</p>
-            </div>
-            <div className="hidden lg:block text-[#888] flex-shrink-0">
-              <IconChevron />
-            </div>
-          </div>
-        </div>
-      </aside>
-    </>
+      </div>
+    </aside>
   );
 }
 

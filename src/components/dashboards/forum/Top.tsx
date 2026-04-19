@@ -1,4 +1,4 @@
-import { Plus, RotateCw } from "lucide-react"
+import { Plus} from "lucide-react"
 type StatCardProps = {
     title: string;
     value: number;
@@ -7,27 +7,27 @@ type StatCardProps = {
 };
 const statsData = [
     {
-        title: "MEMBRES ACTIFS",
-        value: 248,
-        change: "+12 ce mois",
+        title: "Discussions",
+        value: 1284,
+        change: "+18 cette semaine",
         positive: true,
     },
     {
-        title: "NOUVEAUX CE MOIS",
-        value: 17,
-        change: "+3 vs mois dernier",
+        title: "Messages",
+        value: 947,
+        change: "+143 cette semaine",
         positive: true,
     },
     {
-        title: "DISCUSSIONS ACTIVES",
-        value: 34,
-        change: "-2 vs hier",
+        title: "En attente modération",
+        value: 7,
+        change: "Signalements + validation",
         positive: false,
     },
     {
-        title: "SIGNALEMENTS EN ATTENTE",
-        value: 7,
-        change: "À traiter",
+        title: "Membres actifs",
+        value: 43,
+        change: "Ces 30 derniers jours",
         positive: false,
     },
 ];
@@ -43,10 +43,10 @@ const StatCard = ({ title, value, change, positive }: StatCardProps) => {
             </h2>
 
             <p
-                className={` text-[13px] font-medium ${positive ? "text-green-600" : "text-red-500"
+                className={` text-[13px] font-medium ${positive ? "text-green-600" : "text-[#5A6172]"
                     }`}
             >
-                {positive ? "↑" : "↓"} {change}
+                {positive ? "↑" : ""} {change}
             </p>
         </div>
     );
@@ -58,20 +58,20 @@ const Top = () => {
             <div className="w-full flex flex-col md:flex-row justify-between">
                 <div className="flex flex-col gap-y-2.5">
                     <h2 className="text-[22px] font-bold leading-[100%] tracking-[-0.44px] text-[#0D0F14] font-[Poppins]">
-                        Bonjour Lahoucine 👋
+                        Forums de la communauté
                     </h2>
                     <p className="text-[13px] font-normal leading-[100%] tracking-[0] text-[#5A6172] font-[Poppins]">
-                        Voici l'activité de la plateforme — Jeudi 3 avril 2025
+                       Espace d'échange entre membres — copropriétaires, syndics, professionnels
                     </p>
                 </div>
                 <div className="flex gap-x-4 mt-5 md:mt-0">
                     <button className="flex justify-center items-center gap-x-4 text-center px-5 py-3 border border-[#E4E7EC] hover:bg-black text-[#0D0F14] hover:text-white  rounded-[10px] cursor-pointer transition-colors duration-200">
-                        <RotateCw className="w-4 h-4" />
-                        <p className="text-[13.5px] font-semibold leading-[100%] tracking-[0] font-[Poppins]">Actualiser</p>
+                        <Plus className="w-4 h-4" />
+                        <p className="text-[13.5px] font-semibold leading-[100%] tracking-[0] font-[Poppins]">Nouveau sujet</p>
                     </button>
                     <button className="flex justify-center items-center gap-x-4 text-center px-5 py-3 border border-[#E4E7EC] hover:bg-black text-[#0D0F14] hover:text-white  rounded-[10px] cursor-pointer transition-colors duration-200">
                         <Plus className="w-4 h-4" />
-                        <p className="text-[13.5px] font-semibold leading-[100%] tracking-[0] font-[Poppins]">Ajouter un membre</p>
+                        <p className="text-[13.5px] font-semibold leading-[100%] tracking-[0] font-[Poppins]">Gérer les forums</p>
                     </button>
                 </div>
             </div>

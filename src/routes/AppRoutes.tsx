@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 
 
 import { Dashboard } from "../pages/dashboard/Dashboard";
-import { F } from "../pages/F";
+
 
 import EmptySideBarLayout from "../layouts/EmptySideBarLayout";
 import { Home } from "../pages/landing/Home";
@@ -16,6 +16,14 @@ import NormalMembers from "../pages/landing/NormalMembers";
 import { Auditeur } from "../pages/landing/Auditeur";
 import Comite from "../pages/landing/Comite";
 import { Forum } from "../pages/landing/Forum";
+import { Members } from "../pages/dashboard/Members";
+import { Forums } from "../pages/dashboard/Forums";
+import EventsPage from "../pages/dashboard/EventsPage";
+import ModerationPage from "../moderation/components/ModerationPage";
+import Profile from "../pages/dashboard/Profile";
+import ProfilePage from "../components/dashboards/Profile/Profilepage";
+import SocietePage from "../components/dashboards/Profile/Societepage";
+import SecuritePage from "../components/dashboards/Profile/Securitepage";
 
 
 
@@ -39,7 +47,7 @@ const AppRoutes = createBrowserRouter([
       { path: "auditeur", element: <Auditeur /> },
       { path: "comite", element: <Comite /> },
       { path: "forum", element: <Forum /> },
-      { path: "f", element: <F /> },
+
     ],
   },
 
@@ -49,7 +57,19 @@ const AppRoutes = createBrowserRouter([
     children: [
       { index: true, element: <Dashboard /> },
       { path: "dashboard", element: <Dashboard /> },
-      { path: "f", element: <F /> },
+      { path: "members", element: <Members /> },
+      { path: "forum", element: <Forums /> },
+      { path: "event", element: <EventsPage /> },
+      { path: "mode", element: <ModerationPage /> },
+      {
+        path: "profile",
+        element: <Profile />,
+        children: [
+          { path: "profil", element: <ProfilePage /> },
+            { path: "societe", element: <SocietePage /> },
+              { path: "securite", element: <SecuritePage/> },
+        ]
+      }
     ],
   },
 
