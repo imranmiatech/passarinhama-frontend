@@ -16,7 +16,7 @@ type DocumentsMobilePanelTabsProps = {
 export function DocumentsMobilePanelTabs({ value, onChange }: DocumentsMobilePanelTabsProps) {
   return (
     <div
-      className="sticky top-0 z-10 flex shrink-0 gap-1.5 border-b border-[#E5E7EB] bg-[#F4F5F7] p-2 lg:hidden"
+      className="sticky  top-0 z-10 flex flex-col gap-y-4 shrink-0 gap-1.5 border-b border-[#E5E7EB] bg-[#F4F5F7] p-2 lg:hidden"
       role="tablist"
       aria-label="Sections de la page Documents"
     >

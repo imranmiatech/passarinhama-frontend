@@ -57,7 +57,7 @@ const NAV_SECTIONS: NavSection[] = [
     {
         section: "MON COMPTE",
         items: [
-            { id: "profil", label: "Mon profil", path: "/dashboard/profile/profil", icon: <IconUser /> },
+            { id: "profil", label: "Mon profil", path: "/dashboard/profile", icon: <IconUser /> },
             { id: "societe", label: "Société", path: "/dashboard/profile/societe", icon: <IconBriefcase /> },
             { id: "securite", label: "Sécurité", path: "/dashboard/profile/securite", icon: <IconLock /> },
             { id: "notifications", label: "Notifications", path: "/dashboard/profile/notifications", icon: <IconBell /> },

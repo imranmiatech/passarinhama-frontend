@@ -71,12 +71,12 @@ const AppRoutes = createBrowserRouter([
         path: "profile",
         element: <Profile />,
         children: [
-          { path: "profil", element: <ProfilePage /> },
+          { index: true, element: <ProfilePage /> },
           { path: "societe", element: <SocietePage /> },
           { path: "securite", element: <SecuritePage /> },
           { path: "notifications", element: <NotificationsPage /> },
-             { path: "sessions", element: <SessionsPage /> },
-                { path: "complete", element: <SupprimerPage /> },
+          { path: "sessions", element: <SessionsPage /> },
+          { path: "complete", element: <SupprimerPage /> },
         ]
       },
 
