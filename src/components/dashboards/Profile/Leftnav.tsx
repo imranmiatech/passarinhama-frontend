@@ -1,4 +1,4 @@
-import { Delete, Trash } from "lucide-react";
+import {  Trash } from "lucide-react";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 

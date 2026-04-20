@@ -242,7 +242,7 @@
 // */
 
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Users,
@@ -253,9 +253,9 @@ import {
   Shield,
   Settings,
   X,
-  Menu,
+ 
 } from "lucide-react";
-
+import logo from "../../assets/logo.png"
 interface NavItem {
   icon: React.ReactNode;
   label: string;
@@ -377,7 +377,7 @@ function SidebarContent({
           iconOnly ? "justify-center" : "justify-start"
         }`}
       >
-        <div className="w-9 h-9 bg-[#CCFF33] rounded-lg flex items-center justify-center flex-shrink-0" />
+        <Link to='/' className="w-9 h-9  rounded-lg flex items-center justify-center flex-shrink-0" > <img src={logo} alt="" /> </Link>
         {!iconOnly && (
           <div className="overflow-hidden">
             <p className="text-[18px] font-semibold text-white">ARCHICOPRO</p>

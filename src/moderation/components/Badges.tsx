@@ -1,4 +1,5 @@
-import type { ContentType, Priority } from "../types";
+import type { ContentType, Priority } from "./types";
+
 
 // ── Avatar ────────────────────────────────────────────────────────────────
 interface AvatarProps {

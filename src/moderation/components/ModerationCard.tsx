@@ -1,4 +1,4 @@
-import type { ModerationItem } from "../types";
+import type { ModerationItem } from "./types";
 import { Avatar, TypeBadge, PriorityBadge, ActionBtn } from "./Badges";
 
 // ── Type icon mapping ─────────────────────────────────────────────────────
